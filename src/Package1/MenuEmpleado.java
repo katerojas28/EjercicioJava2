@@ -43,6 +43,7 @@ public class MenuEmpleado {
 
              case 5:
                  System.out.println("Fin de la aplicación");
+                 Operaciones.salir();
 
          }
 
