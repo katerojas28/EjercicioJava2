@@ -7,11 +7,10 @@ public class OperacionesActualizar {
     public static void Nombre (){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el Id del empleado a actualizar");
-        int id = scanner.nextInt();
+        int id = Integer.parseInt(scanner.nextLine());
         if(Operaciones.validarId(id)){
             for (Empleado empleado : Operaciones.ListaEmpleado) {
                 if (empleado.getId() == id) {
-                    String var = scanner.nextLine();
                     System.out.println("Ingrese el Nombre");
                     String nombre = scanner.nextLine();
                     empleado.setNombre(nombre);
@@ -27,11 +26,10 @@ public class OperacionesActualizar {
     public static void Apellido (){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el Id del empleado a actualizar");
-        int id = scanner.nextInt();
+        int id = Integer.parseInt(scanner.nextLine());
         if(Operaciones.validarId(id)){
             for (Empleado empleado : Operaciones.ListaEmpleado) {
                 if (empleado.getId() == id) {
-                    String var = scanner.nextLine();
                     System.out.println("Ingrese el Apellido");
                     String apellido = scanner.nextLine();
                     empleado.setApellido(apellido);
@@ -47,7 +45,7 @@ public class OperacionesActualizar {
     public static void Salario (){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Ingrese el Id del empleado a actualizar");
-        int id = scanner.nextInt();
+        int id = Integer.parseInt(scanner.nextLine());
         if(Operaciones.validarId(id)){
             for (Empleado empleado : Operaciones.ListaEmpleado) {
                 if (empleado.getId() == id) {

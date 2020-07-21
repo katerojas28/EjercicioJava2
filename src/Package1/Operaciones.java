@@ -61,8 +61,8 @@ public class Operaciones {
         } else {
             System.out.println("No se ha escrito ningun Id de Empleado");
             eliminar();
-            MenuEmpleado.Listar();
-        }
+
+        }MenuEmpleado.Listar();
     }
 
     public static void actualizar(){
