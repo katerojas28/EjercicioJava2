@@ -35,6 +35,7 @@ public class Operaciones {
                 double salario = Double.parseDouble(scanner.nextLine());
                 Empleado nuevo = new Empleado(id, nombre,apellido, salario);
                 ListaEmpleado.add(nuevo);
+                System.out.println("Empleado Agregado");
 
                // ListaEmpleado.add( new Empleado(id, nombre,apellido, salario));
             }catch (NumberFormatException ex){
@@ -91,6 +92,7 @@ public class Operaciones {
                         empleado.setNombre(nombres);
                         empleado.setApellido(apellido);
                         empleado.setSalario(salario);
+                        System.out.println("Empleado Actualizado");
                     }
                 }
 
