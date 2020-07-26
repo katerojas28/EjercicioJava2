@@ -1,6 +1,8 @@
 package Package1;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Operaciones {
 
@@ -83,15 +85,23 @@ public class Operaciones {
             } while (opcion < 1 || opcion > 4);
             switch (opcion) {
                 case 1:
+                    System.out.println("----------------------------------------------------------------------------");
+                    System.out.println();
                     OperacionesActualizar.Nombre();
                     break;
                 case 2:
+                    System.out.println("----------------------------------------------------------------------------");
+                    System.out.println();
                     OperacionesActualizar.Apellido();
                     break;
                 case 3:
+                    System.out.println("----------------------------------------------------------------------------");
+                    System.out.println();
                     OperacionesActualizar.Salario();
                     break;
                 case 4:
+                    System.out.println("----------------------------------------------------------------------------");
+                    System.out.println();
                     System.out.println("Se ha redireccionado al Menu principal del empleado");
                     MenuEmpleado.Listar();
             }
@@ -104,6 +114,62 @@ public class Operaciones {
 
     public static void mostrar (){
         ListaEmpleado.stream().forEach(listaEmpleados ->{System.out.println(listaEmpleados);});
+        MenuEmpleado.Listar();
+    }
+
+    public static void mostrarEmpleadoConMayorSalario() {
+        System.out.println("\nEmpleado con el salario más alto:");
+        System.out.println(ListaEmpleado.stream()
+                .max(Comparator.comparing(Empleado::getSalario))
+                .map(Empleado ::toString)
+                .orElse("No hay Empleados"));
+        MenuEmpleado.Listar();
+    }
+
+    public static void mostrarEmpleadoConMenorSalario() {
+        System.out.println("\nEmpleado con el salario más bajo:");
+        System.out.println(ListaEmpleado.stream()
+                .min(Comparator.comparing(Empleado::getSalario))
+                .map(Empleado::toString)
+                .orElse("No hay Empleados"));
+        MenuEmpleado.Listar();
+    }
+
+    public static void mostrarEmpleadosOrdenadosPorNombre() {
+        System.out.println("\nEmpleados ordenados por Nombre:");
+        ListaEmpleado.stream()
+                .sorted(Comparator.comparing(Empleado::getNombre))
+                .forEach(System.out::println);
+        MenuEmpleado.Listar();
+    }
+
+    public static void sumaDeSalariosEmpleados(){
+        System.out.println("\nSuma de los salarios de todos los Empleados cuyo salario es mayor a 700000:");
+        System.out.println(ListaEmpleado.stream()
+                .filter(empleado -> empleado.getSalario() >= 700000)
+                .map(Empleado :: getSalario)
+                .reduce((double) 0,(acc, sueldo) -> acc+sueldo));
+        MenuEmpleado.Listar();
+    }
+
+    public static Stream<Empleado> filtroEmpleadoConApellidoQueEmpiezaConA(){
+        return ListaEmpleado.stream()
+                .filter(empleado -> empleado.getApellido().toUpperCase().startsWith("A"));
+    }
+
+    public static void totalDeEmpleadosConApellidoQueEmpiezaConA() {
+        System.out.print( "Hay un total de "+ filtroEmpleadoConApellidoQueEmpiezaConA().count()+
+                " Empleados que su apellido empieza por A");
+        System.out.println();
+        MenuEmpleado.Listar();
+    }
+
+    public static void primerosCincoEmpeladosConMayorSalario(){
+        System.out.println("\nEmpleados con el salario más alto:");
+        System.out.println(ListaEmpleado.stream()
+                .sorted(Comparator.comparing(Empleado:: getSalario, Comparator.reverseOrder()))
+                .limit(5)
+                .collect(Collectors.toList()));
         MenuEmpleado.Listar();
     }
 

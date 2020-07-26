@@ -6,6 +6,10 @@ public class OperacionesActualizar {
 
     public static void Nombre (){
         Scanner scanner = new Scanner(System.in);
+        System.out.println("****   Lista de Empleados   ****");
+        Operaciones.ListaEmpleado.stream().forEach(listaEmpleados ->{System.out.println(listaEmpleados);});
+        System.out.println("****   ******************  ****");
+        System.out.println();
         System.out.println("Ingrese el Id del empleado a actualizar");
         int id = Integer.parseInt(scanner.nextLine());
         if(Operaciones.validarId(id)){
@@ -14,7 +18,7 @@ public class OperacionesActualizar {
                     System.out.println("Ingrese el Nombre");
                     String nombre = scanner.nextLine();
                     empleado.setNombre(nombre);
-                    System.out.println("Se ha actualizado el Nombre del empleado con el id: "+id);
+                    System.out.println("Se ha actualizado el Nombre del empleado con el "+empleado);
                 }
             }
         }else{
@@ -25,6 +29,10 @@ public class OperacionesActualizar {
 
     public static void Apellido (){
         Scanner scanner = new Scanner(System.in);
+        System.out.println("****   Lista de Empleados   ****");
+        Operaciones.ListaEmpleado.stream().forEach(listaEmpleados ->{System.out.println(listaEmpleados);});
+        System.out.println("****   ******************  ****");
+        System.out.println();
         System.out.println("Ingrese el Id del empleado a actualizar");
         int id = Integer.parseInt(scanner.nextLine());
         if(Operaciones.validarId(id)){
@@ -33,7 +41,7 @@ public class OperacionesActualizar {
                     System.out.println("Ingrese el Apellido");
                     String apellido = scanner.nextLine();
                     empleado.setApellido(apellido);
-                    System.out.println("Se ha actualizado el Apellido del empleado con el id: "+id);
+                    System.out.println("Se ha actualizado el Apellido del empleado con el "+empleado);
                 }
             }
         }else{
@@ -44,6 +52,10 @@ public class OperacionesActualizar {
 
     public static void Salario (){
         Scanner scanner = new Scanner(System.in);
+        System.out.println("****   Lista de Empleados   ****");
+        Operaciones.ListaEmpleado.stream().forEach(listaEmpleados ->{System.out.println(listaEmpleados);});
+        System.out.println("****   ******************  ****");
+        System.out.println();
         System.out.println("Ingrese el Id del empleado a actualizar");
         int id = Integer.parseInt(scanner.nextLine());
         if(Operaciones.validarId(id)){
@@ -52,7 +64,7 @@ public class OperacionesActualizar {
                     System.out.println("Ingrese el Salario");
                     double salario = scanner.nextDouble();
                     empleado.setSalario(salario);
-                    System.out.println("Se ha actualizado el Salario del empleado con el id: "+id);
+                    System.out.println("Se ha actualizado el Salario del empleado con el "+empleado);
                 }
             }
         }else{
